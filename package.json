@@ -1,0 +1,41 @@
+{
+  "name": "kmlet",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "commitlint": "^17.1.2",
+    "eslint": "^8.0.1",
+    "eslint-config-standard-with-typescript": "^23.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-vue": "^9.5.1",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "postcss-html": "^1.5.0",
+    "prettier": "^2.7.1",
+    "stylelint": "^14.12.0",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-recess-order": "^3.0.0",
+    "stylelint-config-recommended-vue": "^1.4.0",
+    "stylelint-config-standard": "^28.0.0",
+    "stylelint-config-standard-scss": "^5.0.0",
+    "stylelint-prettier": "^2.0.0",
+    "typescript": "*"
+  },
+  "lint-staged": {
+    "packages/**/{*.vue,*.js,*.ts,*.jsx,*.tsx}": "eslint --fix",
+    "packages/**/{*.scss,*.css}": "stylelint --fix"
+  }
+}
