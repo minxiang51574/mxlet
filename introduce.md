@@ -80,4 +80,11 @@ eslintignore、gitignore、eslint、stylelint、prettier、husky、lint-staged�
 
 ### 5、组件文档
 
+
+### 6、问题
+iconfont 如何引入？
+打包发布？
+pnpm workspace引入问题？
+
+
   

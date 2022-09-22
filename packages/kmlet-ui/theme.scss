@@ -1,0 +1,142 @@
+//换肤
+$k-mp-primary-color: #FD6846 !default;
+$k-h-primary-color: #1C87FF !default;
+//button
+$mp-button-disabled: #FFD3C2 !default;
+$h-button-disabled: #96D2FF !default;
+
+// 定义基本样式
+// 1.主题色
+/* 主题1/Brand-3 */
+$base-color1-Brand-3:#FFD3C2;
+/* 主题1/主色Brand-6 */
+$base-color1-Brand-6:#FD6846;
+/* 主题1/Brand-7 */
+$base-color1-Brand-7:#D64A31;;
+
+/* 主题2/Brand-3 */
+$base-color2-Brand-3:#96D2FF;
+/* 主题2/主色Brand-6 */
+$base-color3-Brand-6:#1C87FF;
+/* 主题2/Brand-7 */
+$base-color2-Brand-7:#0D65D9;
+
+
+// 2.辅助色
+/* 辅助色/gray-浅色背景 */
+$sub-color4-shallow:#F6F7FB;
+
+// 3.中性色
+/* 中性色/文字色/1-主要文字 */
+$neutral-color-text-main:#31353C;
+/* 中性色/文字色/2-次要文字 */
+$neutral-color-text-minor:#64676D;
+/* 中性色/文字色/3-说明文字 */
+$neutral-color-text-explain:#91949F;
+/* 中性色/文字色/4-占位 (禁用）*/
+$neutral-color-text-place:#B8BABE;
+/* 中性色/背景色/1-背景色 */
+$neutral-color-bg-color:#F3F6F9;
+
+/* 中性色/分割线/2-边框色 */
+$neutral-color-cut-border:#D4D9E1;
+
+
+
+
+
+
+// color
+// 主色调
+$primary-color: #fa2c19 !default;
+$primary-color-end: #fa6419 !default;
+// 特殊禁用色
+$white: #fff !default;
+$black: #000 !default;
+
+// 标题常规文字
+$title-color: #1a1a1a !default;
+
+// Font
+$font-size-1: 12px !default;
+$font-size-2: 28rpx !default;
+$font-size-3: 32rpx !default;
+$font-size-4: 34rpx !default;
+$font-size-5: 36rpx !default;
+
+$font-size-large: $font-size-5  !default;
+$font-size-default: $font-size-4  !default;
+$font-size-small: $font-size-2  !default;
+
+// button
+
+// size - large
+$button-large-height: 88rpx !default;
+// $button-large-line-height: 46px !default;
+$button-large-font-size:$font-size-5 !default;
+$button-large-padding: 0 44rpx !default;
+
+// size - default
+$button-default-height: 80rpx !default;
+// $button-default-line-height: 32rpx !default;
+$button-default-font-size: $font-size-4  !default;
+$button-default-padding: 0 36rpx !default;
+
+// size - small
+$button-small-height: 64rpx !default;
+// $button-small-line-height: 26px !default;
+$button-small-font-size: $font-size-small  !default;
+$button-small-padding: 0 16rpx !default;
+
+
+
+$button-default-color: rgba(102, 102, 102, 1) !default;
+$button-default-bg-color: $white  !default;
+$button-border-width: 1px !default;
+$button-large-font-size: $button-default-font-size  !default;
+$button-default-border-color: #D4D9E1 !default;
+$button-primary-color: $white  !default;
+$button-primary-background-color: linear-gradient(135deg, $primary-color 0%, $primary-color-end 100%) !default;
+
+
+$button-plain-background-color: $white  !default;
+
+$button-disabled-opacity: 0.68 !default;
+
+
+// toast
+$toast-title-font-size: 16px !default;
+$toast-text-font-size: 14px !default;
+$toast-font-color: $white  !default;
+$toast-inner-padding: 24px 30px !default;
+$toast-inner-bg-color: rgba(0, 0, 0, 0.8) !default;
+$toast-inner-border-radius: 12px !default;
+$toast-cover-bg-color: rgba(0, 0, 0, 0) !default;
+
+// searchbar
+
+
+// empty
+$empty-padding: 32px 0 !default;
+$empty-image-size: 170px !default;
+$empty-description-margin-top: 30rpx !default;
+$empty-description-color: #8F9295 !default;
+$empty-description-font-size: 14px !default;
+$empty-description-line-height: 20px !default;
+$empty-description-padding: 0 40px !default;
+
+// picker
+$picker-cancel-color: #808080 !default;
+$picker-ok-color: $primary-color  !default;
+$picker-bar-cancel-font-size: 14px !default;
+$picker-bar-ok-font-size: 14px !default;
+$picker-bar-button-padding: 0 15px !default;
+$picker-bar-title-font-size: 16px !default;
+$picker-bar-title-color: $title-color  !default;
+$picker-bar-title-font-weight: normal !default;
+$picker-item-height: 36px !default;
+$picker-item-text-color: $title-color  !default;
+$picker-item-active-text-color: inherit !default;
+$picker-item-text-font-size: 14px !default;
+$picker-item-active-line-border: 1px solid #d8d8d8 !default;
+$picker-columns-item-color: $title-color  !default;

@@ -5,10 +5,8 @@
 -->
 <template>
   <view class="content">
-    <view class="text-area">
-      <text class="title">{{ title }}</text>
-    </view>
-    <km-button></km-button>
+    <h3 style="color:red">1.按钮</h3>
+    <km-button type="primary">测试</km-button>
   </view>
 </template>
 

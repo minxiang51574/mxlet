@@ -1,15 +1,19 @@
 {
   "name": "@kmlet/ui",
-  "version": "1.0.1",
-  "description": "",
-  "main": "index.js",
+  "private": true,
+  "version": "0.0.1",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "@kmlet/shared": "workspace:*"
+    "vue": "^3.2.37"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^4.6.4",
+    "vite": "^2.9.14",
+    "vue-tsc": "^0.40.4"
   }
 }

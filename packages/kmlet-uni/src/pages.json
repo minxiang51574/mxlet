@@ -3,7 +3,11 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "uni-app"
+				"navigationBarTitleText": "组件测试",
+				"navigationBarTextStyle": "black",
+				"navigationBarBackgroundColor": "#F8F8F8",
+				"backgroundColor": "#F8F8F8"
+
 			}
 		}
 	],
@@ -16,7 +20,7 @@
 	"easycom": {
 		"autoscan": true,
 		"custom": {
-			"^km-(.*)": "@kmlet/ui/src/$1/index.vue"
+			"^km-(.*)": "@kmlet/ui/components/$1/index.vue"
 		}
 	}
 }
