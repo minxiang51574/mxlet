@@ -74,7 +74,7 @@ eslintignore、gitignore、eslint、stylelint、prettier、husky、lint-staged�
 ├── packages/
 |   ├── kmlet-shared/      // 公共方法
 |   ├── kmlet-ui/          // 核心UI库
-|   ├── kmlet-uni/         // UI库测试项目
+|   ├── kmlet-example/         // UI库测试项目
 
 ### 4、测试项目
 
@@ -82,9 +82,49 @@ eslintignore、gitignore、eslint、stylelint、prettier、husky、lint-staged�
 
 
 ### 6、问题
-iconfont 如何引入？
+iconfont 如何引入？  在k-icon组件中全局引入
+为什么那些开源组件的字体都用px?
 打包发布？
 pnpm workspace引入问题？
 
 
-  
+### 7、changesets TODO
+
+管理包的version和生成changelog
+
+### 8、版本
+alpha版：内部测试版。α是希腊字母的第一个，表示最早的版本，一般用户不要下载这个版本，这个版本包含很多BUG，功能也不全，主要是给开发人员和 测试人员测试和找BUG用的。
+
+beta版：公开测试版。β是希腊字母的第二个，顾名思义，这个版本比alpha版发布得晚一些，主要是给“部落”用户和忠实用户测试用的，该版本任然存 在很多BUG，但是相对alpha版要稳定一些。这个阶段版本的软件还会不断增加新功能。如果你是发烧友，可以下载这个版本。
+
+rc版：全写：Release Candidate（候选版本），该版本又较beta版更进一步了，该版本功能不再增加，和最终发布版功能一样。这个版本有点像最终发行版之前的一个类似 预览版，这个的发布就标明离最终发行版不远了。作为普通用户，如果你很急着用这个软件的话，也可以下载这个版本。
+
+stable版：稳定版。在开源软件中，都有stable版，这个就是开源软件的最终发行版，用户可以放心大胆的用了。
+
+### 9、问题
+ 在使用pnpm install 安装依赖 ERR_PNPM_NO_MATCHING_VERSION_INSIDE_WORKSPACE  No matching version found for @kmlet/shared@* inside the workspace
+
+### 打包格式
+ es、cjs、umd、iife 格式的包
+- cjs (CommonJS) — 只能在 NodeJS 上运行，使用 require("module") 读取并加载模块。
+- amd (Asynchronous Module Definition，异步模块化定义) — 与 RequireJS 等模块加载工具一起使用。
+- umd 同时兼容 CJS 和 AMD，并且支持直接在前端用 <script src="lib.umd.js"></script> 的方式加载。现在还在广泛使用，不过可以想象 ESM 和 IIFE 逐渐代替它
+- es — ECMAScript Module，现在使用的模块方案，使用 import export 来管理依赖 ,将 bundle 保存为 ES 模块文件。适用于其他打包工具，在现代浏览器中用 <script type=module> 标签引入,package.json 添加 "type": "module" 来使用。
+
+
+### Git 贡献提交规范
+
+   规范
+  - `feat` 增加新功能
+  - `fix` 修复问题/BUG
+  - `style` 代码风格相关无影响运行结果的
+  - `perf` 优化/性能提升
+  - `refactor` 重构
+  - `revert` 撤销修改
+  - `test` 测试相关
+  - `docs` 文档/注释
+  - `chore` 依赖更新/脚手架配置修改等
+  - `workflow` 工作流改进
+  - `ci` 持续集成
+  - `types` 类型定义文件更改
+  - `wip` 开发中

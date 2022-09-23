@@ -1,0 +1,26 @@
+.k-button-group {
+    padding: 0 24rpx;
+    display: flex;
+  
+    .btn-item {
+      flex: 1;
+  
+      &:nth-child(2) {
+        margin-left: 24rpx;
+      }
+    }
+  
+    &.fixed {
+      position: fixed;
+      height: 120rpx;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #fff;
+      align-items: center;
+      box-sizing: content-box;
+      padding-bottom: constant(safe-area-inset-bottom);
+      padding-bottom: env(safe-area-inset-bottom);
+      z-index: 999;
+    }
+  }

@@ -1,6 +1,6 @@
 {
   "name": "@kmlet/shared",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "src/index.js",
   "scripts": {
@@ -8,8 +8,5 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@kmlet/ui": "workspace:*"
-  }
+  "license": "ISC"
 }

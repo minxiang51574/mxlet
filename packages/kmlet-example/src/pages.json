@@ -20,7 +20,7 @@
 	"easycom": {
 		"autoscan": true,
 		"custom": {
-			"^km-(.*)": "@kmlet/ui/components/$1/index.vue"
+			"^k-(.*)": "@kmlet/ui/components/k-$1/index.vue"
 		}
 	}
 }

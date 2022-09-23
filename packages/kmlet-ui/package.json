@@ -1,17 +1,19 @@
 {
   "name": "@kmlet/ui",
-  "private": true,
-  "version": "0.0.1",
+  "version": "0.0.6",
+  "description": "基于 Uniapp + Vue3 生态的跨平台移动端UI组件库",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@kmlet/shared": "workspace:*",
     "vue": "^3.2.37"
   },
   "license": "MIT",
   "devDependencies": {
+    "@kmlet/shared": "workspace:*",
     "typescript": "^4.6.4",
     "vite": "^2.9.14",
     "vue-tsc": "^0.40.4"

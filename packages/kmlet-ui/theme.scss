@@ -42,10 +42,6 @@ $neutral-color-bg-color:#F3F6F9;
 $neutral-color-cut-border:#D4D9E1;
 
 
-
-
-
-
 // color
 // 主色调
 $primary-color: #fa2c19 !default;
@@ -58,50 +54,11 @@ $black: #000 !default;
 $title-color: #1a1a1a !default;
 
 // Font
-$font-size-1: 12px !default;
+$font-size-1: 24rpx !default;
 $font-size-2: 28rpx !default;
 $font-size-3: 32rpx !default;
 $font-size-4: 34rpx !default;
 $font-size-5: 36rpx !default;
-
-$font-size-large: $font-size-5  !default;
-$font-size-default: $font-size-4  !default;
-$font-size-small: $font-size-2  !default;
-
-// button
-
-// size - large
-$button-large-height: 88rpx !default;
-// $button-large-line-height: 46px !default;
-$button-large-font-size:$font-size-5 !default;
-$button-large-padding: 0 44rpx !default;
-
-// size - default
-$button-default-height: 80rpx !default;
-// $button-default-line-height: 32rpx !default;
-$button-default-font-size: $font-size-4  !default;
-$button-default-padding: 0 36rpx !default;
-
-// size - small
-$button-small-height: 64rpx !default;
-// $button-small-line-height: 26px !default;
-$button-small-font-size: $font-size-small  !default;
-$button-small-padding: 0 16rpx !default;
-
-
-
-$button-default-color: rgba(102, 102, 102, 1) !default;
-$button-default-bg-color: $white  !default;
-$button-border-width: 1px !default;
-$button-large-font-size: $button-default-font-size  !default;
-$button-default-border-color: #D4D9E1 !default;
-$button-primary-color: $white  !default;
-$button-primary-background-color: linear-gradient(135deg, $primary-color 0%, $primary-color-end 100%) !default;
-
-
-$button-plain-background-color: $white  !default;
-
-$button-disabled-opacity: 0.68 !default;
 
 
 // toast
