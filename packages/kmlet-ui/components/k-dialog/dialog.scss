@@ -1,0 +1,78 @@
+
+  $k-bg-color: #f3f4f6;
+  $k-modal-border-radius: 20rpx;
+  $k-content-color: #606266;
+  
+  .k-modal {
+    width: 600rpx;
+    min-height: 300rpx;
+    border-radius: $k-modal-border-radius;
+    overflow: hidden;
+  
+    &__title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 36rpx;
+      font-weight: bold;
+      padding-top: 40rpx;
+      color: $neutral-color-text-main;
+    }
+  
+    &__content {
+      padding: 48rpx 32rpx;
+      @include flex;
+      justify-content: center;
+      text-align: center;
+  
+      &__text {
+        font-size: 32rpx;
+        color: $neutral-color-text-minor;
+        flex: 1;
+      }
+    }
+  
+    &__button-group {
+      @include flex;
+  
+      &--confirm-button {
+        flex-direction: column;
+        padding: 0 50rpx 30rpx 50rpx;
+      }
+  
+      &__wrapper {
+        flex: 1;
+        @include flex;
+        justify-content: center;
+        align-items: center;
+        height: 110rpx;
+        font-weight: 500;
+  
+        &--confirm,
+        &--only-cancel {
+          border-bottom-right-radius: $k-modal-border-radius;
+        }
+  
+        &--noBtns {
+          color: $neutral-color-text-main;
+  
+        }
+  
+        &--cancel,
+        &--only-confirm {
+          border-bottom-left-radius: $k-modal-border-radius;
+        }
+  
+        &--hover {
+          background-color: $k-bg-color;
+        }
+  
+        &__text {
+          font-size: 32rpx;
+          text-align: center;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+  

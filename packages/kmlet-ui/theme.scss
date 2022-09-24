@@ -97,3 +97,10 @@ $picker-item-active-text-color: inherit !default;
 $picker-item-text-font-size: 14px !default;
 $picker-item-active-line-border: 1px solid #d8d8d8 !default;
 $picker-columns-item-color: $title-color  !default;
+
+@mixin flex($direction: row) {
+	/* #ifndef APP-NVUE */
+	display: flex;
+	/* #endif */
+	flex-direction: $direction;
+}

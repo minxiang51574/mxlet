@@ -34,6 +34,28 @@
       @confirm="confirm">
     </k-button-group>
 
+    <h3 style="color:red">2.overlay</h3>
+    <k-button @click="showOverlay = true" type="primary">这里是overlay</k-button>
+
+    <k-overlay :show="showOverlay" @click="showOverlay = false">
+      <view class="warp">
+        <view @tap.stop class="rect">这里是overlay</view>
+      </view>
+    </k-overlay>
+
+    <h3 style="color:red">3.popup弹出层</h3>
+    <k-button @click="showPopup = true">打开popup</k-button>
+    <k-popup :show="showPopup" @click="showPopup = false" @close="showPopup = false" mode="bottom" round="30">
+      <view class="center">
+        <text>出淤泥而不染，濯清涟而不妖</text>
+      </view>
+    </k-popup>
+    <h3 style="color:red">4.Dialog 对话框</h3>
+    <k-button @click="showModal = true">打开dialog</k-button>
+
+    <k-dialog :content="'下架后，该优惠券无法再被顾客领取，但不影响已领取顾客的使用'" :show="showModal" title="是否下架优惠券" :titleIcon="'icon-a-16_add'"
+      :titleStyle="{ 'color': 'red', 'marginRight': '20rpx' }" @confirm="showModal = false">
+    </k-dialog>
   </view>
 </template>
 
@@ -55,16 +77,24 @@ const cancel = () => {
   console.log("cancel", loading);
 }
 
+// 2 Overlay
+const showOverlay = ref<Boolean>(false)
+
+// 3 Popup
+const showPopup = ref<Boolean>(false)
+
+// 4 dialog
+const showModal = ref<Boolean>(false)
+
+
 </script>
 
 <style>
-.content {
-  /* display: flex;
-  flex-direction: column;
+.center {
+  height: 150px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
-  justify-content: center; */
 }
-
-
-
 </style>

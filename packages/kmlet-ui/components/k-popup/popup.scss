@@ -1,0 +1,39 @@
+$k-popup-flex: 1 !default;
+$k-popup-content-background-color: #fff !default;
+    
+.k-popup {
+      flex: $k-popup-flex;
+    
+      &__content {
+        background-color: $k-popup-content-background-color;
+        position: relative;
+    
+        &__close {
+          position: absolute;
+    
+          &--hover {
+            opacity: 0.4;
+          }
+        }
+    
+        &__close--top-left {
+          top: 30rpx;
+          left: 30rpx;
+        }
+    
+        &__close--top-right {
+          top: 30rpx;
+          right: 30rpx;
+        }
+    
+        &__close--bottom-left {
+          bottom: 30rpx;
+          left: 30rpx;
+        }
+    
+        &__close--bottom-right {
+          right: 30rpx;
+          bottom: 30rpx;
+        }
+      }
+}

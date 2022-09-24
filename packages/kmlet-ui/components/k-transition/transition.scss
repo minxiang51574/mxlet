@@ -1,0 +1,113 @@
+ /**
+   * vue版本动画内置的动画模式有如下：
+   * fade：淡入
+   * zoom：缩放
+   * fade-zoom：缩放淡入
+   * fade-up：上滑淡入
+   * fade-down：下滑淡入
+   * fade-left：左滑淡入
+   * fade-right：右滑淡入
+   * slide-up：上滑进入
+   * slide-down：下滑进入
+   * slide-left：左滑进入
+   * slide-right：右滑进入
+   */
+  
+  $k-zoom-scale: scale(0.95);
+  
+  .k-fade-enter-active,
+  .k-fade-leave-active {
+    transition-property: opacity;
+  }
+  
+  .k-fade-enter,
+  .k-fade-leave-to {
+    opacity: 0
+  }
+  
+  .k-fade-zoom-enter,
+  .k-fade-zoom-leave-to {
+    transform: $k-zoom-scale;
+    opacity: 0;
+  }
+  
+  .k-fade-zoom-enter-active,
+  .k-fade-zoom-leave-active {
+    transition-property: transform, opacity;
+  }
+  
+  .k-fade-down-enter-active,
+  .k-fade-down-leave-active,
+  .k-fade-left-enter-active,
+  .k-fade-left-leave-active,
+  .k-fade-right-enter-active,
+  .k-fade-right-leave-active,
+  .k-fade-up-enter-active,
+  .k-fade-up-leave-active {
+    transition-property: opacity, transform;
+  }
+  
+  .k-fade-up-enter,
+  .k-fade-up-leave-to {
+    transform: translate3d(0, 100%, 0);
+    opacity: 0
+  }
+  
+  .k-fade-down-enter,
+  .k-fade-down-leave-to {
+    transform: translate3d(0, -100%, 0);
+    opacity: 0
+  }
+  
+  .k-fade-left-enter,
+  .k-fade-left-leave-to {
+    transform: translate3d(-100%, 0, 0);
+    opacity: 0
+  }
+  
+  .k-fade-right-enter,
+  .k-fade-right-leave-to {
+    transform: translate3d(100%, 0, 0);
+    opacity: 0
+  }
+  
+  .k-slide-down-enter-active,
+  .k-slide-down-leave-active,
+  .k-slide-left-enter-active,
+  .k-slide-left-leave-active,
+  .k-slide-right-enter-active,
+  .k-slide-right-leave-active,
+  .k-slide-up-enter-active,
+  .k-slide-up-leave-active {
+    transition-property: transform;
+  }
+  
+  .k-slide-up-enter,
+  .k-slide-up-leave-to {
+    transform: translate3d(0, 100%, 0)
+  }
+  
+  .k-slide-down-enter,
+  .k-slide-down-leave-to {
+    transform: translate3d(0, -100%, 0)
+  }
+  
+  .k-slide-left-enter,
+  .k-slide-left-leave-to {
+    transform: translate3d(-100%, 0, 0)
+  }
+  
+  .k-slide-right-enter,
+  .k-slide-right-leave-to {
+    transform: translate3d(100%, 0, 0)
+  }
+  
+  .k-zoom-enter-active,
+  .k-zoom-leave-active {
+    transition-property: transform
+  }
+  
+  .k-zoom-enter,
+  .k-zoom-leave-to {
+    transform: $k-zoom-scale
+  }
