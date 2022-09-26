@@ -5,7 +5,7 @@
 -->
 <template>
   <view class="content">
-    <h3 style="color:red;text-align: center;" >1.按钮</h3>
+    <h3 style="color:red;text-align: center;">1.按钮</h3>
     <view>
       <h3 style="color:red">1-1.size</h3>
       <k-button size="large" type="primary">large</k-button>
@@ -56,6 +56,20 @@
     <k-dialog :content="'下架后，该优惠券无法再被顾客领取，但不影响已领取顾客的使用'" :show="showModal" title="是否下架优惠券" :titleIcon="'icon-a-16_add'"
       :titleStyle="{ 'color': 'red', 'marginRight': '20rpx' }" @confirm="showModal = false">
     </k-dialog>
+
+    <h3 style="color:red">5.输入框</h3>
+    消费满<k-input border="bottom" inputAlign="center" maxlength="5" v-model="valueNumber"></k-input>元
+
+    <k-list-cell>
+      <view class="k-list__cell">
+        <text style="flex:1">卡面值</text>
+        <k-input border="none" inputAlign="center" :width="400" v-model="valueNumber" :placeholder="'请输入0～100,000'">
+        </k-input>元
+      </view>
+    </k-list-cell>
+
+    <h3 style="color:red">6.inputNumber</h3>
+    <k-input-number v-model="valueNumber2"></k-input-number>
   </view>
 </template>
 
@@ -64,7 +78,7 @@ import { ref } from 'vue'
 // 1按钮
 const loading = ref<Boolean>(false)
 const disabled = ref<Boolean>(false)
-  
+
 const confirm = () => {
   loading.value = true
   // disabled.value = true
@@ -85,6 +99,12 @@ const showPopup = ref<Boolean>(false)
 
 // 4 dialog
 const showModal = ref<Boolean>(false)
+
+// 5 input 
+const valueNumber = ref<Number | String>('100')
+
+// 6 inputNumber
+const valueNumber2 = ref(1)
 
 
 </script>
