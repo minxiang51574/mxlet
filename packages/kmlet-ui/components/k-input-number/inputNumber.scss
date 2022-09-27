@@ -24,11 +24,8 @@
     justify-content: center;
   }
   
-  .k-minus__sign {
-    height: 4rpx;
-    width: 28rpx;
-    background-color: #000;
-    ;
+  .k-minus__sign,.k-plus__sign {
+    font-size: 48rpx;
   }
   
   .k-number__plus_box {
@@ -49,19 +46,6 @@
     /* #ifdef H5 */
     cursor: pointer;
     /* #endif */
-  }
-  
-  .k-plus__sign-col {
-    background-color: #000;
-    position: absolute;
-    top: 0;
-    transform: translateX(-50%);
-    width: 4rpx;
-  }
-  
-  .k-plus__sign-row {
-    background-color: #000;
-    height: 4rpx;
   }
   
   .k-number__input {
@@ -85,10 +69,8 @@
   }
   
   .k-number__disabled {
-  
     .k-minus__sign,
-    .k-plus__sign-col,
-    .k-plus__sign-row {
-      background: #B8BABE;
+    .k-plus__sign,{
+      color:#B8BABE
     }
   }

@@ -8,8 +8,7 @@
         <!-- 减 -->
         <view class="k-minus__sign_box" @tap="minus">
             <view class="k-number__minus" :class="[disabled || min >= inputValue ? 'k-number__disabled' : '']">
-                <view class="k-minus__sign" v-if="!custom"></view>
-                <slot></slot>
+                <k-icon name="icon-a-48pxjian" class="k-minus__sign"></k-icon>
             </view>
         </view>
         <!-- 内容 -->
@@ -20,11 +19,7 @@
         <view class="k-number__plus_box" @tap="plus">
             <view class="k-number__plus" :style="{ minWidth: signWidth + 'rpx', minHeight: signWidth + 'rpx' }"
                 :class="[disabled || inputValue >= max ? 'k-number__disabled' : '']">
-                <view class="k-plus__sign-col" :style="{ height: signWidth + 'rpx', left:'50%' }" v-if="!custom">
-                </view>
-                <view class="k-plus__sign-row" :style="{ width: signWidth + 'rpx' }" v-if="!custom">
-                </view>
-                <slot name="plus"></slot>
+                <k-icon name="icon-a-48pxjia" class="k-plus__sign"></k-icon>
             </view>
         </view>
     </view>
@@ -33,6 +28,7 @@
 <script setup lang="ts">
 import { ref, watch } from "vue";
 import { inputNumberProps } from "./props"
+import kIcon from "../k-icon/index.vue"
 const props = defineProps(inputNumberProps)
 const inputValue = ref(0)
 

@@ -38,11 +38,6 @@ export const inputNumberProps = {
         type: String,
         default: '#181818'
     },
-    //是否自定义加减号，为true则去除默认加减号，使用插槽自定义
-    custom: {
-        type: Boolean,
-        default: false
-    },
     //索引值，列表中使用
     index: {
         type: [Number, String],

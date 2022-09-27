@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@kmlet/shared": "workspace:*",
+    "dayjs": "^1.11.5",
     "vue": "^3.2.37"
   },
   "license": "MIT",

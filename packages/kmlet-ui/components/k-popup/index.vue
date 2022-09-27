@@ -1,5 +1,5 @@
 <template>
-    <view class="k-popup">
+  <view class="k-popup">
     <k-overlay :duration="overlayDuration" :opacity="overlayOpacity" :show="showOverlay" @click="overlayClick"
       v-if="overlay">
     </k-overlay>
@@ -20,7 +20,7 @@ import kTransition from "../k-transition/index.vue"
 import kOverlay from "../k-overlay/index.vue"
 
 import { popupProps } from "./props"
-import { computed, reactive, ref, watch, toRef } from 'vue';
+import { computed, reactive, ref, toRef } from 'vue';
 const props = defineProps(popupProps)
 
 const { duration, zIndex, mode, bgColor, round, customStyle, zoom, closeOnClickOverlay } = props

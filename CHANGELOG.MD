@@ -6,12 +6,10 @@
   - 新增packages项目（kmlet-shared、kmlet-ui、kmlet-example）
   - 新增说明文档、更改记录文档 
 
-
 `2022-09-22`
 - **Features:** 
   -  调整组件测试项目 kmlet-example 结构
   -  新增组件Button
-  
 
 `2022-09-23`  
 - **Features:** 
@@ -23,8 +21,12 @@
 - **Features:** 
   - 新增overlay、transition、popup、dialog、line组件
   - kmlet-shared 加入公共方法
-
   
 `2022-09-26`  
 - **Features:** 
   - feat：新增input、inputNumber、listCell组件
+
+`2022-09-27`  
+- **Features:** 
+  - feat：新增textarea、switch、radio、checkbox、ActionSheet、ActionSheetRadio、SearchBar、Empty、Calendar、picker、DatetimePicker、Tabs组件
+  - todo vue2 => vue3 语法
