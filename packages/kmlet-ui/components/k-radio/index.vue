@@ -22,10 +22,6 @@
 <script>
 export default {
     name: "k-radio",
-    emits: ['change'],
-    options: {
-        virtualHost: true
-    },
     props: {
         value: {
             type: [Number, String],

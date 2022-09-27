@@ -54,23 +54,6 @@
 <script>
 export default {
     name: "k-textarea",
-    emits: ['input', 'update:modelValue', 'focus', 'blur', 'confirm', 'click', 'linechange', 'keyboardheightchange'],
-    // #ifndef VUE3
-    // #ifdef MP-WEIXIN
-    //加group是为了避免在表单中使用时给组件加value属性
-    behaviors: ['wx://form-field-group'],
-    // #endif
-    // #ifdef MP-BAIDU || MP-QQ
-    //如果在这些平台不需要也能识别，则删除
-    behaviors: ['uni://form-field'],
-    // #endif
-    // #endif
-    // #ifdef MP-WEIXIN
-    options: {
-        addGlobalClass: true,
-        virtualHost: true
-    },
-    // #endif
     props: {
         //是否为必填项
         required: {

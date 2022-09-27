@@ -6,31 +6,18 @@
         <view class="k-scroll__view" :class="{ 'k-tabs__full': !alignLeft }">
             <view v-for="(tab, index) in vals" :key="index" class="k-tabs__item" :class="{ 'k-tabs__full': !alignLeft }"
                 :id="tab.fui_s_id" @tap="switchTab(index)">
-                <view class="k-tabs__text-wrap"
-                    :class="{ 'k-tabs__wrap-disabled': tab.disabled, 'k-tabs__item-column': direction === 'column' && tab.icon }"
+                <view class="k-tabs__text-wrap" :class="{ 'k-tabs__wrap-disabled': tab.disabled }"
                     :style="{ height: height + 'rpx' }">
                     <view class="k-tabs__ac-line"
                         :class="{ 'k-tabs__line-short': short, 'k-tabs__slider-color': !sliderBackground }"
                         :style="{ height: sliderHeight + 'rpx', background: sliderBackground, borderRadius: sliderRadius == -1 ? sliderHeight + 'rpx' : sliderRadius + 'rpx', bottom: bottom + 'rpx', transform: `scale(${tabIndex === index ? (isNvue ? 1 : scale) : (isNvue ? 0.00001 : 0)})` }"
                         v-if="isSlider">
                     </view>
-                    <image class="k-tabs__icon" :class="{ 'k-tabs__icon-column': direction === 'column' }"
-                        :src="tabIndex === index && tab.selectedIcon ? tab.selectedIcon : tab.icon" v-if="tab.icon">
-                    </image>
                     <text class="k-tabs__text"
                         :class="{ 'k-tabs__selected-color': !selectedColor && tabIndex === index, 'k-tabs__text-color': !color && tabIndex !== index }"
                         :style="{ fontSize: selectedSize + 'rpx', color: tabIndex === index ? selectedColor : color, fontWeight: tabIndex === index ? selectedFontWeight : fontWeight }">{{
                         tab.name
-                        }}<text
-                            :class="{ 'k-tabs__badge-color': !badgeBackground, 'k-tabs__badge-dot': isDot, 'k-tabs__badge': !isDot }"
-                            :style="{ color: badgeColor, background: badgeBackground }" v-if="tab.badge">{{ isDot ? '' :
-                            tab.badge
-
-
-
-
-
-                            }}</text></text>
+                        }}</text>
                 </view>
             </view>
         </view>
@@ -40,12 +27,6 @@
 <script>
 export default {
     name: 'k-tabs',
-    emits: ['change'],
-    // #ifdef MP-WEIXIN
-    options: {
-        virtualHost: true
-    },
-    // #endif
     props: {
         // 标签页数据源
         tabs: {
@@ -131,10 +112,6 @@ export default {
             // #ifndef APP-NVUE
             default: ''
             // #endif
-        },
-        isDot: {
-            type: Boolean,
-            default: false
         },
         isSlider: {
             type: Boolean,
@@ -367,10 +344,6 @@ export default {
     margin-right: 12rpx;
 }
 
-.k-tabs__item-column {
-    flex-direction: column !important;
-}
-
 .k-tabs__icon-column {
     margin-right: 0 !important;
     margin-bottom: 8rpx;
@@ -465,10 +438,6 @@ export default {
     /*  #ifdef  H5 */
     background: $k-h-primary-color !important;
     /*  #endif  */
-}
-
-.k-tabs__badge-color {
-    background: var(--k-color-danger, #FF2B2B) !important;
 }
 
 /* #endif */

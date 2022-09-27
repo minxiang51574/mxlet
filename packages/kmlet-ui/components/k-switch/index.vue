@@ -33,15 +33,6 @@
 <script>
 export default {
     name: "k-switch",
-    emits: ['change'],
-    // #ifndef VUE3
-    // #ifdef MP-WEIXIN
-    behaviors: ['wx://form-field-group'],
-    // #endif
-    // #ifdef MP-BAIDU || MP-QQ
-    behaviors: ['uni://form-field'],
-    // #endif
-    // #endif
     props: {
         //开关选择器名称
         name: {

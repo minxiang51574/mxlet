@@ -12,12 +12,6 @@
 <script>
 export default {
     name: "k-radio-group",
-    emits: ['change', 'input', 'update:modelValue'],
-    // #ifndef VUE3
-    // #ifdef MP-WEIXIN
-    behaviors: ['wx://form-field-group'],
-    // #endif
-    // #endif
     props: {
         name: {
             type: String,
