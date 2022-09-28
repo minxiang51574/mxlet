@@ -17,16 +17,11 @@ export default {
             type: String,
             default: ''
         },
-        // #ifdef VUE3
         modelValue: {
             type: [Number, String],
             default: ''
         },
-        // #endif
-        value: {
-            type: String,
-            default: ''
-        }
+
     },
     data() {
         return {
@@ -34,50 +29,51 @@ export default {
         }
     },
     watch: {
-        // #ifdef VUE3
         modelValue(val) {
-            this.modelChange(val)
+            console.log('value: ' + val);
+            // this.modelChange(val)
         },
-        // #endif
-        value(val) {
-            this.modelChange(val)
-        }
+
     },
     created() {
         this.childrens = []
     },
     methods: {
         radioChange(e) {
-            this.$emit('change', e)
-            // TODO vue2 兼容
-            this.$emit('input', e.detail.value)
+            // this.$emit('change', e)
+            // // TODO vue2 兼容
+            // this.$emit('input', e.detail.value)
             // TODO vue3 兼容
             // #ifdef VUE3
-            this.$emit("update:modelValue", e.detail.value);
+            // this.$emit("update:modelValue", e.detail.value);
             // #endif
         },
         changeValue(value, target) {
-            this.val = value;
-            this.childrens.forEach(item => {
-                if (item !== target) {
-                    item.val = false;
-                }
-            })
-            let e = {
-                detail: {
-                    value: value
-                }
-            }
-            this.radioChange(e)
+            // console.log('changeValue');
+
+            // this.val = value;
+            // this.childrens.forEach(item => {
+            //     if (item !== target) {
+            //         item.val = false;
+            //     }
+            // })
+            // let e = {
+            //     detail: {
+            //         value: value
+            //     }
+            // }
+            // this.radioChange(e)
         },
         modelChange(val) {
-            this.childrens.forEach(item => {
-                if (item.value === val) {
-                    item.val = true;
-                } else {
-                    item.val = false;
-                }
-            })
+            console.log('modelChange', val);
+
+            // this.childrens.forEach(item => {
+            //     if (item.value === val) {
+            //         item.val = true;
+            //     } else {
+            //         item.val = false;
+            //     }
+            // })
         }
     }
 }

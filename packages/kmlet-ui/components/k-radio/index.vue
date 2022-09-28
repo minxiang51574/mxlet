@@ -18,10 +18,14 @@
 
     </view>
 </template>
-  
+
 <script>
 export default {
     name: "k-radio",
+    emits: ['change'],
+    options: {
+        virtualHost: true
+    },
     props: {
         value: {
             type: [Number, String],
@@ -157,7 +161,7 @@ export default {
     }
 }
 </script>
-  
+
 <style lang="scss" scoped>
 .k-radio__input {
     font-size: 0;
@@ -276,4 +280,3 @@ export default {
 
 }
 </style>
-  

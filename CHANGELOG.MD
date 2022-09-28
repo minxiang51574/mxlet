@@ -29,4 +29,7 @@
 `2022-09-27`  
 - **Features:** 
   - feat：新增textarea、switch、radio、checkbox、ActionSheet、ActionSheetRadio、SearchBar、Empty、Calendar、picker、DatetimePicker、Tabs组件
-  - todo vue2 => vue3 语法
+
+`2022-09-28`  
+- **Features:** 
+  - feat：radio、checkbox、ActionSheetRadio改造

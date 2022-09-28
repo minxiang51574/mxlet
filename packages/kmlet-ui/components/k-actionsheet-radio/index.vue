@@ -5,7 +5,7 @@
 -->
 <template>
     <view :class="classes">
-        <k-popup mode="bottom" round="20" :show="showPopup" @close="close">
+        <k-popup mode="bottom" round="20" :show="show" @close="close">
             <view class="k-actionsheetRadio__content">
                 <k-toolbar :title="title" :showCancelBtn="false" :showConfirmBtn="false" showCloseIcon @close="close">
                 </k-toolbar>
@@ -35,72 +35,55 @@ import kLabel from "../k-label/index.vue"
 import kListCell from "../k-list-cell/index.vue"
 import kRadio from "../k-radio/index.vue"
 
-import { computed, onMounted, ref, watch } from 'vue';
-const props = defineProps({
-    modelValue: {
-        type: [String, Number],
-        default: ''
-    },
-    show: {
-        type: Boolean,
-        default: false
-    },
-    radioItems: {
-        type: Array,
-        default() {
-            return []
-        }
-    },
-    //标题
-    title: {
-        type: String,
-        default: ""
-    },
-})
-const { title, radioItems } = props
+import { computed, ref, toRefs, watch } from 'vue';
+import { actionsheetRadioProps } from "./props"
+import { createComponent } from "@kmlet/shared"
+
+const componentName = createComponent('actionsheetRadio')
+
+const emit = defineEmits(['close', 'chooseItem', 'update:modelValue'])
+const props = defineProps(actionsheetRadioProps)
+const { title, radioItems, show } = toRefs(props)
+
 const chooseVal = ref(null)
 
-watch(() => props.modelValue,
-    (val) => {
-        undateChecked(val)
-    })
-
+/*
+ * @Description 更新选中 
+ * */
 const undateChecked = (val) => {
-    radioItems.forEach(item => {
+    radioItems.value.forEach(item => {
         item.checked = item.value == val ? true : false
     })
 }
+// 样式
 const classes = computed(() => {
-    const prefixCls = 'k-actionsheetRadio';
+    const prefixCls = componentName;
     return {
         [prefixCls]: true
     };
 });
 
-const showPopup = ref<Boolean>(false)
-const emit = defineEmits(['close', 'chooseItem', 'update:modelValue'])
-onMounted(() => {
-    if (props.show) {
-        showPopup.value = props.show;
-    }
-});
-watch(
-    () => props.show,
-    (val) => {
-        showPopup.value = val;
-        undateChecked(props.modelValue)
-    },
-);
-const change = (val: Object) => {
+// 改变
+const change = (val) => {
     chooseVal.value = val.value
     emit("update:modelValue", val.value)
+    undateChecked(val.value)
+
     setTimeout(() => {
         emit("close")
     }, 200)
 }
+
+// 关闭
 const close = () => {
     emit("close")
 }
+
+watch(
+    () => props.show, () => {
+        undateChecked(props.modelValue)
+    },
+);
 </script>
 <style lang='scss' scoped>
 .k-actionsheetRadio {
@@ -110,8 +93,6 @@ const close = () => {
         padding-bottom: calc(constant(safe-area-inset-bottom) + 180rpx);
         padding-bottom: calc(env(safe-area-inset-bottom) + 180rpx);
     }
-
-
 
     &__cell {
         width: 100%;
@@ -127,12 +108,10 @@ const close = () => {
         &.active {
             /*  #ifdef  MP-WEIXIN */
             color: $k-mp-primary-color;
-
             /*  #endif  */
 
             /*  #ifdef  H5 */
             color: $k-h-primary-color;
-
             /*  #endif  */
         }
     }

@@ -1,10 +1,15 @@
 <!--
+ * @Author       : Mx
+ * @Date         : 2022-09-24 18:32:58
+ * @Description  : 
+-->
+<!--
  * @Author: Mx
  * @Date: 2022-09-24 16:50:39
  * @Description: line 线条
 -->
 <template>
-  <view class="k-line" :style="[lineStyle]">
+	<view class="k-line" :style="[lineStyle]">
 	</view>
 </template>
 
@@ -13,11 +18,11 @@ import { computed, reactive } from 'vue';
 import { lineProps } from "./props"
 
 const props = defineProps(lineProps)
-const { margin, direction, color, dashed, hairline,length} = props
+const { direction, color, dashed, hairline, length } = props
 
-const lineStyle = computed(()=>{
+const lineStyle = computed(() => {
 	const style = reactive({})
-	if(direction === 'row'){
+	if (direction === 'row') {
 		style.borderBottomWidth = '2rpx'
 		style.borderBottomStyle = dashed ? 'dashed' : 'solid'
 		style.width = length
@@ -39,7 +44,7 @@ const lineStyle = computed(()=>{
 })
 </script>
 <style lang='scss' scoped>
-	.k-line {
+.k-line {
 	/* #ifndef APP-NVUE */
 	vertical-align: middle;
 	/* #endif */

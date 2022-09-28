@@ -1,16 +1,19 @@
 <!--
  * @Author       : Mx
  * @Date         : 2022-09-28 14:58:22
- * @Description  : Checkbox 复选按钮
+ * @Description  : Radio 单选按钮
 -->
 <template>
-    <view @tap.stop="checkboxChange" :class="{'k-checkbox__right':iconPlacement}">
+    <view @tap.stop="radioChange">
         <view :class="classes" :style="styles">
             <view class="k-check__mark" :style="{ borderBottomColor: checkMarkColor, borderRightColor: checkMarkColor }"
                 v-if="isChecked"></view>
+
+            <radio class="k-radio__hidden" :color="activeColor" :disabled="disabled" :value="value"
+                :checked="isChecked"></radio>
         </view>
-        <text class="k-check__label">
-            {{ name }}
+        <text class="k-radio__label">
+            <slot></slot>
         </text>
     </view>
 </template>
@@ -18,14 +21,14 @@
 <script setup lang="ts">
 import { createComponent } from "@kmlet/shared";
 import { computed, ref, toRefs, watch } from "vue";
-import { checkboxProps } from "./props"
+import { radioProps } from "./props"
 
-const componentName = createComponent('checkbox');
+const componentName = createComponent('radio');
 
-const props = defineProps(checkboxProps)
+const props = defineProps(radioProps)
 const emit = defineEmits(['change'])
 
-const { disabled, checked, value, activeColor, borderColor, checkMarkColor, borderRadius, name, iconPlacement } = toRefs(props)
+const { disabled, checked, value, activeColor, borderColor, checkMarkColor, borderRadius, } = toRefs(props)
 
 // 是否选中
 let isChecked = ref<Boolean>(false)
@@ -54,9 +57,9 @@ const styles = computed(() => {
 })
 
 // 按钮点击
-const checkboxChange = () => {
-    if (disabled.value) return;
-    isChecked.value = !isChecked.value;
+const radioChange = () => {
+    if (disabled.value || isChecked.value) return;
+    isChecked.value = true;
     emit('change', {
         checked: isChecked.value,
         value: value.value
@@ -67,5 +70,5 @@ const checkboxChange = () => {
 
 </script>
 <style lang='scss' scoped>
-@import "./checkbox.scss";
+@import "./radio.scss";
 </style>
