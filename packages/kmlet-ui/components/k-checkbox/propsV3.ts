@@ -1,9 +1,14 @@
 /*
  * @Author       : Mx
- * @Date         : 2022-09-28 11:48:14
+ * @Date         : 2022-09-29 18:14:47
  * @Description  : 
  */
-export const radioProps = {
+/*
+ * @Author       : Mx
+ * @Date         : 2022-09-28 15:24:27
+ * @Description  : 
+ */
+export const checkboxProps = {
     // 默认值
     label: {
         type: [String, Number],
@@ -39,10 +44,5 @@ export const radioProps = {
     checkMarkColor: {
         type: String,
         default: '#fff'
-    },
-    // 是否是ActionSheet组件
-    isActionSheet: {
-        type: Boolean,
-        default: false
-    },
+    }
 }

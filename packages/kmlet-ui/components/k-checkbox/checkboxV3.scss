@@ -1,15 +1,12 @@
-.k-radiogroup--horizontal .k-radio_wrap {
-    display: inline-flex;
-    margin-right: 10px;
-}
-.k-radio--reverse{
+
+.k-checkbox--reverse{
     flex: 1;
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
 }
-.k-radio {
 
+.k-checkbox {
     width: 40rpx;
     height: 40rpx;
     border-width: 2rpx;
@@ -37,8 +34,8 @@
 }
 
 
-.k-radio__color {
-    visibility: visible !important; // 兼容actionSheetRadio
+.k-checkbox__color {
+    visibility: visible !important; // 兼容actionSheetcheckbox
 
     /*  #ifdef  MP-WEIXIN */
     background-color: $k-mp-primary-color !important;
@@ -51,7 +48,7 @@
     /*  #endif  */
 }
 
-.k-radio__label {
+.k-checkbox__label {
     margin-left: 14rpx;
 }
 
@@ -77,7 +74,7 @@
     transform-origin: 54% 48%;
 }
 
-.k-radio__hidden {
+.k-checkbox__hidden {
     /* #ifndef APP-NVUE */
     display: inline-block;
     width: 100%;
@@ -102,10 +99,10 @@
 }
 
 // 禁用
-.k-radio__disabled {
+.k-checkbox__disabled {
     background-color: $sub-color4-shallow !important;
 
-    &.k-radio__color {
+    &.k-checkbox__color {
         /*  #ifdef  MP-WEIXIN */
         background-color: $base-color1-Brand-3 !important;
         border-color: $base-color1-Brand-3 !important;

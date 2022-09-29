@@ -103,25 +103,48 @@
     </k-label>
 
     <h3 style="color:red">9.radio</h3>
-    <k-radio value="1" color="#000000">选项1</k-radio>
-    <k-radio value="1" borderRadius="8rpx">选项2</k-radio>
-    <k-radio value="1" disabled>选项3</k-radio>
-    <k-radio value="1" checked disabled>选项4</k-radio>
-
-    <k-radio-group name="radio" v-model="valueNumber4">
-      <view class="k-list__item">
-        <view class="k-align__center">
-          <k-radio value="1">领券时添加好友</k-radio>
-        </view>
-        <view class="k-align__center">
-          <k-radio value="2">使用时添加好友</k-radio>
-        </view>
-      </view>
+    <h3 style="color:red">默认</h3>
+    <k-radio-group name="radio" v-model="valueNumber4" @change="changeRadio">
+      <k-radio label="1">领券时添加好友</k-radio>
+      <k-radio label="2">使用时添加好友</k-radio>
+    </k-radio-group>
+    <h3 style="color:red">水平使用</h3>
+    <k-radio-group name="radio" v-model="valueNumber4" direction="horizontal" @change="changeRadio">
+      <k-radio label="1">领券时添加好友</k-radio>
+      <k-radio label="2">使用时添加好友</k-radio>
     </k-radio-group>
 
-    <h3 style="color:red">10.checkbox</h3>
 
-    <h3 style="color:red">横向两端排列形式</h3>
+    <h3 style="color:red">外层添加list-cell</h3>
+    <k-radio-group name="radio" v-model="valueNumber4" @change="changeRadio">
+      <k-list-cell>
+        <k-radio label="1">领券时添加好友</k-radio>
+      </k-list-cell>
+      <k-list-cell>
+        <k-radio label="2">使用时添加好友</k-radio>
+      </k-list-cell>
+    </k-radio-group>
+
+    <h3 style="color:red">横向两端排列形式(文本在左)</h3>
+    <k-radio-group name="radio" v-model="valueNumber4" @change="changeRadio" text-position="left">
+      <k-list-cell>
+        <k-radio label="1">领券时添加好友</k-radio>
+      </k-list-cell>
+      <k-list-cell>
+        <k-radio label="2">使用时添加好友</k-radio>
+      </k-list-cell>
+    </k-radio-group>
+
+
+    <h3 style="color:red">10.checkbox</h3>
+    <h3 style="color:red">默认</h3>
+    <!-- <k-checkbox-group v-model="checkboxNumber">
+      <k-checkbox :label="item.label" :disabled="item.disabled" v-for="(item, index) in checkboxItems">
+        {{item.name}}
+      </k-checkbox>
+    </k-checkbox-group> -->
+
+    <h3 style="color:red">横向两端排列形式(圆角在右侧)</h3>
     <k-checkbox-group>
       <k-list-cell v-for="(item, index) in checkboxItems">
         <k-checkbox :checked="item.checked" :value="item.value" :disabled="item.disabled" :name="item.name"
@@ -130,13 +153,13 @@
       </k-list-cell>
     </k-checkbox-group>
 
-    <k-checkbox-group>
+    <!-- <k-checkbox-group>
       <view class="k-list__cell">
         <k-checkbox :checked="item.checked" :value="item.value" :disabled="item.disabled" :name="item.name"
           v-for="(item, index) in checkboxItems">
         </k-checkbox>
       </view>
-    </k-checkbox-group>
+    </k-checkbox-group> -->
 
     <h3 style="color:red">11.ActionSheet 上拉菜单 </h3>
     <k-button @click="showActionSheet1 = true">这里是ActionSheet1</k-button>
@@ -240,13 +263,35 @@ const valueNumber3 = ref<Number | String>("textarea")
 const isChecked = ref<Boolean>(true)
 
 // 9 radio
-const valueNumber4 = ref('2')
-// const changeRadio = (val: any) => {
-//   console.log(111, val);
-// }
+const valueNumber4 = ref('1')
+const changeRadio = (val: any) => {
+  console.log("changeRadio", val, typeof (val));
+}
 
 
 // 10 checkbox
+const checkboxNumber = ref('1')
+const checkboxItems2 = [{
+  name: '代金券',
+  label: '1',
+  disabled: false,
+},
+{
+  name: '折扣券',
+  label: '2',
+  disabled: false,
+},
+{
+  name: '兑换券',
+  label: '3',
+  disabled: true,
+},
+{
+  name: '兑换券',
+  label: '4',
+  disabled: true,
+}
+]
 const checkboxItems = [{
   name: '代金券',
   value: '1',
@@ -272,6 +317,7 @@ const checkboxItems = [{
   disabled: true,
 }
 ]
+
 
 // 11 actionsheet
 const showActionSheet1 = ref(false)

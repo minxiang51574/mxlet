@@ -1,18 +1,33 @@
 {
   "name": "@kmlet/ui",
-  "version": "0.0.6",
+  "version": "0.0.14",
   "description": "基于 Uniapp + Vue3 生态的跨平台移动端UI组件库",
+  "main": "index.js",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview"
   },
+  "files": [
+    "assets",
+    "components",
+    "theme.scss",
+    "CHANGELOG.md",
+    "README.md"
+  ],
+  "keywords": [
+    "Vue",
+    "kmlet",
+    "UI"
+  ],
   "dependencies": {
     "@kmlet/shared": "workspace:*",
     "dayjs": "^1.11.5",
     "vue": "^3.2.37"
   },
+  "author": "",
   "license": "MIT",
+  "homepage": "",
   "devDependencies": {
     "@kmlet/shared": "workspace:*",
     "typescript": "^4.6.4",

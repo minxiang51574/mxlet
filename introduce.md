@@ -102,17 +102,21 @@ rc版：全写：Release Candidate（候选版本），该版本又较beta版更
 stable版：稳定版。在开源软件中，都有stable版，这个就是开源软件的最终发行版，用户可以放心大胆的用了。
 
 ### 9、问题
- 在使用pnpm install 安装依赖 ERR_PNPM_NO_MATCHING_VERSION_INSIDE_WORKSPACE  No matching version found for @kmlet/shared@* inside the workspace
+ 1.在使用pnpm install 安装依赖 
 
-### 打包格式
+ERR_PNPM_NO_MATCHING_VERSION_INSIDE_WORKSPACE  In : No matching version found for @kmlet/shared@0.0.2 inside the workspace
+
+解决:在包发布时使用了npm publish 导致workspace配置失效，改成pnpm publish即可解决
+
+### 10、打包格式
  es、cjs、umd、iife 格式的包
 - cjs (CommonJS) — 只能在 NodeJS 上运行，使用 require("module") 读取并加载模块。
 - amd (Asynchronous Module Definition，异步模块化定义) — 与 RequireJS 等模块加载工具一起使用。
 - umd 同时兼容 CJS 和 AMD，并且支持直接在前端用 <script src="lib.umd.js"></script> 的方式加载。现在还在广泛使用，不过可以想象 ESM 和 IIFE 逐渐代替它
-- es — ECMAScript Module，现在使用的模块方案，使用 import export 来管理依赖 ,将 bundle 保存为 ES 模块文件。适用于其他打包工具，在现代浏览器中用 <script type=module> 标签引入,package.json 添加 "type": "module" 来使用。
+- es — ECMAScript Module，现在使用的模块方案，使用 import export 来管理依赖 ,将 bundle 保存为 ES 模块文件。适用于其他打包工具，在现代浏览器中用 `<script type=module>` 标签引入,package.json 添加 "type": "module" 来使用。
 
 
-### Git 贡献提交规范
+### 11、Git提交规范
 
    规范
   - `feat` 增加新功能
@@ -128,3 +132,22 @@ stable版：稳定版。在开源软件中，都有stable版，这个就是开�
   - `ci` 持续集成
   - `types` 类型定义文件更改
   - `wip` 开发中
+
+### 12、npm version
+版本号基本是由三位数字组成：
+   1   .   0   .   0
+[MAJOR].[MINOR].[PATCH]
+
+| 选项	|描述 |	例子	|说明
+|major	|重大更新版本	|npm version major	|0.2.0 =》1.0.0
+|minor	|主要更新版本	|npm version minor	|0.2.0 =》0.3.0
+|patch	|补丁更新版本	|npm version patch	|0.2.0 =》0.2.1
+
+1、更新至新的补丁版本
+$ npm version patch
+
+2、自定义git的提交内容
+npm version major -m "版本更新至%s"
+
+3、不进行git操作
+npm version patch --no-git-tag-version
