@@ -1,94 +1,65 @@
 <!--
  * @Author       : Mx
  * @Date         : 2022-08-18 21:20:42
- * @Description  : 
+ * @Description  : checkboxGroup 复选框组
 -->
 <template>
-    <checkbox-group :name="name">
+    <checkbox-group :class="classes">
         <slot></slot>
     </checkbox-group>
 </template>
 
-<script>
-export default {
-    name: "k-checkbox-group",
-    emits: ['change', 'input', 'update:modelValue'],
-    props: {
-        name: {
-            type: String,
-            default: ''
-        },
-        // #ifdef VUE3
-        modelValue: {
-            type: Array,
-            default() {
-                return []
-            }
-        },
-        // #endif
-        value: {
-            type: Array,
-            default() {
-                return []
-            }
-        }
+<script setup lang="ts">
+import { createComponent } from '@kmlet/shared';
+import { computed, provide, watch } from 'vue';
+const emit = defineEmits(['change', 'update:modelValue'])
+const componentName = createComponent('checkbox')
+
+const props = defineProps({
+    modelValue: {
+        type: Array,
+        default: () => []
     },
-    data() {
-        return {
-            vals: ''
-        };
+    disabled: {
+        type: Boolean,
+        default: false
     },
-    watch: {
-        // #ifdef VUE3
-        modelValue(vals) {
-            this.modelChange(vals)
-        },
-        // #endif
-        value(vals) {
-            this.modelChange(vals)
-        }
+    max: {
+        type: Number,
+        default: 0
     },
-    created() {
-        this.childrens = []
+    // 文本所在的位置
+    textPosition: {
+        type: String,
+        default: 'right'
     },
-    methods: {
-        checkboxChange(e) {
-            this.$emit('change', e)
-            // TODO vue2 兼容
-            this.$emit('input', e.detail.value)
-            // TODO vue3 兼容
-            // #ifdef VUE3
-            this.$emit("update:modelValue", e.detail.value);
-            // #endif
-        },
-        changeValue(checked, target) {
-            let vals = []
-            this.childrens.forEach(item => {
-                if (item.val) {
-                    vals.push(item.value);
-                }
-            })
-            this.vals = vals;
-            let e = {
-                detail: {
-                    value: vals
-                }
-            }
-            this.checkboxChange(e)
-        },
-        modelChange(vals) {
-            this.childrens.forEach(item => {
-                if (vals.includes(item.value)) {
-                    item.val = true;
-                } else {
-                    item.val = false
-                }
-            })
-        }
+})
+
+const classes = computed(() => {
+    const prefixCls = componentName
+    return {
+        [prefixCls]: true,
     }
+})
+
+const updateValue = (value: any[]) => {
+    emit('update:modelValue', value)
+    emit('change', value);
+
 }
+
+// 传递给checkbox
+provide('parent', {
+    label: computed(() => props.modelValue),
+    disabled: computed(() => props.disabled),
+    max: computed(() => props.max),
+    position: props.textPosition,
+    updateValue
+});
+
+watch(() => props.modelValue, (value) => {
+    emit('change', value)
+})
+
 </script>
 
-<style scoped>
-
-</style>

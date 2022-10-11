@@ -1,0 +1,30 @@
+.k-actionsheetRadio {
+
+    &__content {
+        min-height: 800rpx;
+        padding-bottom: calc(constant(safe-area-inset-bottom) + 180rpx);
+        padding-bottom: calc(env(safe-area-inset-bottom) + 180rpx);
+    }
+
+    &__cell {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__name {
+        font-size: 32rpx;
+        color: #31353c;
+
+        &.active {
+            /*  #ifdef  MP-WEIXIN */
+            color: $k-mp-primary-color;
+            /*  #endif  */
+
+            /*  #ifdef  H5 */
+            color: $k-h-primary-color;
+            /*  #endif  */
+        }
+    }
+}

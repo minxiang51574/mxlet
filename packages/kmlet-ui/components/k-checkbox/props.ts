@@ -4,25 +4,19 @@
  * @Description  : 
  */
 export const checkboxProps = {
-    // 默认值
-    value: {
-        type: [String],
-        default: ''
-    },
-    // 当前是否选中
-    checked: {
+    modelValue: {
         type: Boolean,
         default: false
+    },
+    // 默认值
+    label: {
+        type: String,
+        default: ''
     },
     // 是否禁用
     disabled: {
         type: Boolean,
         default: false
-    },
-    // name提示文字
-    name: {
-        type: [String],
-        default: ""
     },
     //radio选中背景颜色
     activeColor: {
@@ -34,15 +28,6 @@ export const checkboxProps = {
         // #ifndef APP-NVUE
         default: ''
         // #endif
-    },
-    //radio未选中时边框颜色
-    borderColor: {
-        type: String,
-        default: '#ccc'
-    },
-    iconPlacement: {
-        type: String,
-        default: ''
     },
     borderRadius: {
         type: String,
@@ -58,6 +43,5 @@ export const checkboxProps = {
     checkMarkColor: {
         type: String,
         default: '#fff'
-    },
-
+    }
 }

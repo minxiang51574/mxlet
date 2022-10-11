@@ -1,16 +1,15 @@
-.k-checkbox__right {
+
+.k-checkbox--reverse{
     flex: 1;
     display: flex;
     flex-direction: row-reverse;
-    justify-content: space-between
+    justify-content: space-between;
 }
 
 .k-checkbox {
-    font-size: 0;
-    color: rgba(0, 0, 0, 0);
     width: 40rpx;
     height: 40rpx;
-    border-width: 1px;
+    border-width: 2rpx;
     border-style: solid;
 
     /* #ifdef APP-NVUE */
@@ -18,22 +17,26 @@
     /* #endif */
 
     /* #ifndef APP-NVUE */
+    border-radius: 50%;
     display: inline-flex;
     box-sizing: border-box;
-    border-radius: 50%;
     vertical-align: top;
     flex-shrink: 0;
     /* #endif */
-    
+
     flex-direction: row;
     align-items: center;
     justify-content: center;
     overflow: hidden;
     position: relative;
+    background-color:#fff;
+    border-Color:#ccc;
 }
 
-/* #ifndef APP-NVUE */
+
 .k-checkbox__color {
+    visibility: visible !important; // 兼容actionSheetcheckbox
+
     /*  #ifdef  MP-WEIXIN */
     background-color: $k-mp-primary-color !important;
     border-color: $k-mp-primary-color !important;
@@ -45,19 +48,18 @@
     /*  #endif  */
 }
 
-/* #endif */
-.k-check__label {
+.k-checkbox__label {
     margin-left: 14rpx;
 }
 
-.k-check__mark {
+.k-checkbox__mark {
     width: 20rpx;
     height: 40rpx;
     border-bottom-style: solid;
-    border-bottom-width: 3px;
+    border-bottom-width: 6rpx;
     border-bottom-color: #fff;
     border-right-style: solid;
-    border-right-width: 3px;
+    border-right-width: 6rpx;
     border-right-color: #fff;
 
     /* #ifndef APP-NVUE */
@@ -68,6 +70,7 @@
     /* #ifdef APP-NVUE */
     transform: rotate(45deg) scale(.5);
     /* #endif */
+
     transform-origin: 54% 48%;
 }
 
@@ -80,15 +83,14 @@
     appearance: none;
     appearance: none;
     appearance: none;
-
     /* #endif */
 
     /* #ifdef APP-NVUE */
     width: 100wx;
     height: 100wx;
     border-width: 0;
-
     /* #endif */
+
     position: absolute;
     top: 0;
     left: 0;
@@ -99,16 +101,16 @@
 // 禁用
 .k-checkbox__disabled {
     background-color: $sub-color4-shallow !important;
-  
+
     &.k-checkbox__color {
-      /*  #ifdef  MP-WEIXIN */
-      background-color: $base-color1-Brand-3 !important;
-      border-color: $base-color1-Brand-3 !important;
-      /*  #endif  */
-  
-      /*  #ifdef  H5  */
-      background-color: $base-color2-Brand-3 !important;
-      border-color: $base-color2-Brand-3 !important;
-      /*  #endif  */
+        /*  #ifdef  MP-WEIXIN */
+        background-color: $base-color1-Brand-3 !important;
+        border-color: $base-color1-Brand-3 !important;
+        /*  #endif  */
+
+        /*  #ifdef  H5  */
+        background-color: $base-color2-Brand-3 !important;
+        border-color: $base-color2-Brand-3 !important;
+        /*  #endif  */
     }
-  }
+}

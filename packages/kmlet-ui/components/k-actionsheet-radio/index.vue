@@ -9,18 +9,12 @@
             <view class="k-actionsheetRadio__content">
                 <k-toolbar :title="title" :showCancelBtn="false" :showConfirmBtn="false" showCloseIcon @close="close">
                 </k-toolbar>
-                <k-radio-group>
-                    <k-label v-for="(item, index) in radioItems" :key="index">
-                        <k-list-cell>
-                            <view class="k-actionsheetRadio__cell">
-                                <text class="k-actionsheetRadio__name" :class="{ active: chooseVal == index + 1 }">
-                                    {{item.name}}
-                                </text>
-                                <k-radio :checked="item.checked" :value="item.value" isActionSheet @change="change">
-                                </k-radio>
-                            </view>
-                        </k-list-cell>
-                    </k-label>
+
+                <k-radio-group name="radio" text-position="left" v-model="chooseVal" @change="change">
+                    <k-list-cell v-for="(item, index) in radioItems">
+                        <k-radio :label="item.value">{{item.name}}</k-radio>
+                    </k-list-cell>
+
                 </k-radio-group>
             </view>
         </k-popup>
@@ -31,7 +25,6 @@
 import kToolbar from "../k-toolbar/index.vue"
 import kPopup from "../k-popup/index.vue"
 import kRadioGroup from "../k-radio-group/index.vue"
-import kLabel from "../k-label/index.vue"
 import kListCell from "../k-list-cell/index.vue"
 import kRadio from "../k-radio/index.vue"
 
@@ -45,16 +38,15 @@ const emit = defineEmits(['close', 'chooseItem', 'update:modelValue'])
 const props = defineProps(actionsheetRadioProps)
 const { title, radioItems, show } = toRefs(props)
 
-const chooseVal = ref(null)
+const chooseVal = ref(null) // 选择数据
 
 /*
  * @Description 更新选中 
  * */
 const undateChecked = (val) => {
-    radioItems.value.forEach(item => {
-        item.checked = item.value == val ? true : false
-    })
+    chooseVal.value = val
 }
+
 // 样式
 const classes = computed(() => {
     const prefixCls = componentName;
@@ -65,10 +57,8 @@ const classes = computed(() => {
 
 // 改变
 const change = (val) => {
-    chooseVal.value = val.value
-    emit("update:modelValue", val.value)
-    undateChecked(val.value)
-
+    emit("update:modelValue", val)
+    undateChecked(val)
     setTimeout(() => {
         emit("close")
     }, 200)
@@ -80,40 +70,11 @@ const close = () => {
 }
 
 watch(
-    () => props.show, () => {
+    () => show.value, () => {
         undateChecked(props.modelValue)
     },
 );
 </script>
 <style lang='scss' scoped>
-.k-actionsheetRadio {
-
-    &__content {
-        min-height: 800rpx;
-        padding-bottom: calc(constant(safe-area-inset-bottom) + 180rpx);
-        padding-bottom: calc(env(safe-area-inset-bottom) + 180rpx);
-    }
-
-    &__cell {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    &__name {
-        font-size: 32rpx;
-        color: #31353c;
-
-        &.active {
-            /*  #ifdef  MP-WEIXIN */
-            color: $k-mp-primary-color;
-            /*  #endif  */
-
-            /*  #ifdef  H5 */
-            color: $k-h-primary-color;
-            /*  #endif  */
-        }
-    }
-}
+@import "./actionsheetRadio.scss"
 </style>

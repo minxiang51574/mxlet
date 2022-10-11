@@ -104,19 +104,19 @@
 
     <h3 style="color:red">9.radio</h3>
     <h3 style="color:red">默认</h3>
-    <k-radio-group name="radio" v-model="valueNumber4" @change="changeRadio">
+    <k-radio-group v-model="valueNumber4" @change="changeRadio">
       <k-radio label="1">领券时添加好友</k-radio>
       <k-radio label="2">使用时添加好友</k-radio>
     </k-radio-group>
     <h3 style="color:red">水平使用</h3>
-    <k-radio-group name="radio" v-model="valueNumber4" direction="horizontal" @change="changeRadio">
+    <k-radio-group v-model="valueNumber4" direction="horizontal" @change="changeRadio">
       <k-radio label="1">领券时添加好友</k-radio>
       <k-radio label="2">使用时添加好友</k-radio>
     </k-radio-group>
 
 
     <h3 style="color:red">外层添加list-cell</h3>
-    <k-radio-group name="radio" v-model="valueNumber4" @change="changeRadio">
+    <k-radio-group v-model="valueNumber4" @change="changeRadio">
       <k-list-cell>
         <k-radio label="1">领券时添加好友</k-radio>
       </k-list-cell>
@@ -126,7 +126,7 @@
     </k-radio-group>
 
     <h3 style="color:red">横向两端排列形式(文本在左)</h3>
-    <k-radio-group name="radio" v-model="valueNumber4" @change="changeRadio" text-position="left">
+    <k-radio-group v-model="valueNumber4" @change="changeRadio" text-position="left">
       <k-list-cell>
         <k-radio label="1">领券时添加好友</k-radio>
       </k-list-cell>
@@ -137,29 +137,36 @@
 
 
     <h3 style="color:red">10.checkbox</h3>
-    <h3 style="color:red">默认</h3>
-    <!-- <k-checkbox-group v-model="checkboxNumber">
-      <k-checkbox :label="item.label" :disabled="item.disabled" v-for="(item, index) in checkboxItems">
+    <h3 style="color:red">单个checkbox</h3>
+    <k-checkbox v-model="checkbox1" label="1" @change="changeCheckbox">复选框1</k-checkbox>
+    <k-checkbox v-model="checkbox2" label="2" @change="changeCheckbox">复选框2</k-checkbox>
+    <view>checkbox1 : {{checkbox1}} checkbox2 : {{checkbox2}}</view>
+
+    <h3 style="color:red">checkboxGroup</h3>
+    <k-checkbox-group v-model="checkboxNumber">
+      <k-checkbox :label="item.label" :disabled="item.disabled" v-for="(item, index) in checkboxItems2">
         {{item.name}}
       </k-checkbox>
-    </k-checkbox-group> -->
+    </k-checkbox-group>
+    <view>checkboxNumber : {{checkboxNumber}}</view>
 
-    <h3 style="color:red">横向两端排列形式(圆角在右侧)</h3>
-    <k-checkbox-group>
-      <k-list-cell v-for="(item, index) in checkboxItems">
-        <k-checkbox :checked="item.checked" :value="item.value" :disabled="item.disabled" :name="item.name"
-          iconPlacement="right">
+    <h3 style="color:red">外层添加list-cell</h3>
+    <k-checkbox-group v-model="checkboxNumber">
+      <k-list-cell v-for="(item, index) in checkboxItems2">
+        <k-checkbox :label="item.label" :disabled="item.disabled">
+          {{item.name}}
         </k-checkbox>
       </k-list-cell>
     </k-checkbox-group>
 
-    <!-- <k-checkbox-group>
-      <view class="k-list__cell">
-        <k-checkbox :checked="item.checked" :value="item.value" :disabled="item.disabled" :name="item.name"
-          v-for="(item, index) in checkboxItems">
+    <h3 style="color:red">横向两端排列形式(文本在左)</h3>
+    <k-checkbox-group v-model="checkboxNumber" text-position="left" @change="changeCheckboxGroup">
+      <k-list-cell v-for="(item, index) in checkboxItems2">
+        <k-checkbox :label="item.label" :disabled="item.disabled">
+          {{item.name}}
         </k-checkbox>
-      </view>
-    </k-checkbox-group> -->
+      </k-list-cell>
+    </k-checkbox-group>
 
     <h3 style="color:red">11.ActionSheet 上拉菜单 </h3>
     <k-button @click="showActionSheet1 = true">这里是ActionSheet1</k-button>
@@ -270,7 +277,11 @@ const changeRadio = (val: any) => {
 
 
 // 10 checkbox
-const checkboxNumber = ref('1')
+
+const checkbox1 = ref(false)
+const checkbox2 = ref(true)
+
+const checkboxNumber = ref(['1', '2'])
 const checkboxItems2 = [{
   name: '代金券',
   label: '1',
@@ -284,7 +295,7 @@ const checkboxItems2 = [{
 {
   name: '兑换券',
   label: '3',
-  disabled: true,
+  disabled: false,
 },
 {
   name: '兑换券',
@@ -292,31 +303,12 @@ const checkboxItems2 = [{
   disabled: true,
 }
 ]
-const checkboxItems = [{
-  name: '代金券',
-  value: '1',
-  checked: false,
-  disabled: false,
-},
-{
-  name: '折扣券',
-  value: '2',
-  checked: true,
-  disabled: false,
-},
-{
-  name: '兑换券',
-  value: '3',
-  checked: false,
-  disabled: true,
-},
-{
-  name: '兑换券',
-  value: '4',
-  checked: true,
-  disabled: true,
+const changeCheckboxGroup = (val) => {
+  console.log(val);
 }
-]
+const changeCheckbox = (val) => {
+  console.log(val);
+}
 
 
 // 11 actionsheet

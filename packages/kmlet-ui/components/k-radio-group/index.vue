@@ -4,7 +4,7 @@
  * @Description  : RadioGroup 单选框组
 -->
 <template>
-    <radio-group :name="name" :class="classes">
+    <radio-group :class="classes">
         <slot></slot>
     </radio-group>
 </template>
@@ -16,10 +16,6 @@ const emit = defineEmits(['change', 'update:modelValue'])
 const componentName = createComponent('radiogroup')
 
 const props = defineProps({
-    name: {
-        type: String,
-        default: ''
-    },
     modelValue: {
         type: [Number, String],
         default: ''

@@ -4,7 +4,7 @@
  * @Description  : Radio 单选按钮
 -->
 <template>
-    <view @tap.stop="radioChange" class="k-radio_wrap" :class="classes1">
+    <view @tap.stop="radioChange" class="k-radio_wrap" :class="classesWap">
         <view :class="classes" :style="styles">
             <view class="k-check__mark"
                 :style="{ borderBottomColor: checkMarkColor, borderRightColor: checkMarkColor }"></view>
@@ -47,7 +47,7 @@ const classes = computed(() => {
 
     }
 })
-const classes1 = computed(() => {
+const classesWap = computed(() => {
     const perfixCls = componentName
     return {
         [`${perfixCls}--reverse`]: reverseState,

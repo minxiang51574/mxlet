@@ -37,3 +37,7 @@
 `2022-09-29`  
 - **Features:** 
   - feat：radio、checkbox改造Vue3
+
+`2022-10-11`  
+- **Features:** 
+  - feat：checkbox、checkboxGroup、actionsheetRadio改造
